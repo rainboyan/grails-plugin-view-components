@@ -1,0 +1,3 @@
+<plugin name='viewComponents'>
+  <type>org.rainboyan.plugins.components.ComponentsGrailsPlugin</type>
+</plugin>

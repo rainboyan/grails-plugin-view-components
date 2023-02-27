@@ -1,0 +1,2 @@
+grails.compiler.traits.TraitInjector=grails.compiler.traits.ComponentTraitInjector,grails.compiler.traits.ControllerComponentTraitInjector
+grails.core.ArtefactHandler=org.rainboyan.plugins.components.artefact.ComponentArtefactHandler
