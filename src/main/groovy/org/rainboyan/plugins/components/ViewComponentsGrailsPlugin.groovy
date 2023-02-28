@@ -27,7 +27,7 @@ class ViewComponentsGrailsPlugin extends Plugin {
     def pluginExcludes = [
         "grails-app/views/error.gsp"
     ]
-    def dependsOn = [markupView: '1.0.0']
+    def dependsOn = [markupView: '1.0.0 > *']
 
     def watchedResources = ["file:./grails-app/components/**/*Component.groovy",
                             "file:./plugins/*/grails-app/components/**/*Component.groovy",
