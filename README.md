@@ -27,21 +27,16 @@ apply plugin: "org.grails.grails-gsp"
 apply plugin: "org.grails.plugins.views-markup" // Need to build Grails Markup Views
 
 repositories {
-    maven {
-        url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-        mavenContent {
-            snapshotsOnly()
-        }
-    }
+    mavenCentral()
 }
 
 dependencies {
 
     // Grails 4
-    compile "org.rainboyan.plugins:grails-plugin-view-components:0.0.1-SNAPSHOT"
+    compile "org.rainboyan.plugins:grails-plugin-view-components:0.0.1"
 
     // Grails 5
-    implementation "org.rainboyan.plugins:grails-plugin-view-components:0.0.1-SNAPSHOT"
+    implementation "org.rainboyan.plugins:grails-plugin-view-components:0.0.1"
 }
 
 ```
@@ -173,7 +168,7 @@ cd grails-plugin-view-components
 
 ## What's New
 
-### 0.0.1-SNAPSHOT
+### 0.0.1
 
 * Support Grails 4.0+
 * Create View Components, using in Controller and GSP
