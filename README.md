@@ -119,8 +119,13 @@ Using the `ButtonComponent`, `CardComponent` in your GSPs, it's very easy, `View
 
 ```html
 
+// Using expression in GSP
 ${new ButtonComponent(name: 'Primary Button', cssClasses: 'btn-primary').render()}
 
+// Using tag in GSP
+<vc:render component="button" name="View Components" cssClasses="btn-success" icon="star" />
+
+// Custom namespace tags not support yet
 <vc:button type="button" name="Icon Button" cssClasses="btn-primary" icon="box" />
 
 <vc:card title="My First Component" content="This is the first Card" />
