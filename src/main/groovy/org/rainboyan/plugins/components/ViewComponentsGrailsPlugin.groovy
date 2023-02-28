@@ -15,6 +15,8 @@
  */
 package org.rainboyan.plugins.components
 
+import org.rainboyan.plugins.components.taglib.ComponentTagLib
+
 import grails.plugins.*
 
 class ViewComponentsGrailsPlugin extends Plugin {
@@ -31,6 +33,9 @@ class ViewComponentsGrailsPlugin extends Plugin {
                             "file:./plugins/*/grails-app/components/**/*Component.groovy",
                             "file:./app/components/**/*Component.groovy",
                             "file:./plugins/*/app/components/**/*Component.groovy"]
+    def providedArtefacts = [
+            ComponentTagLib
+    ]
 
     def title = "Grails View Components Plugin"
     def author = "Michael Yan"
