@@ -43,6 +43,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compileOnly "org.grails:grails-core"
     compileOnly "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "org.grails:grails-web-common:$grailsVersion"
     compileOnly "org.grails.plugins:views-markup:2.0.4"
     implementation "commons-beanutils:commons-beanutils:1.9.4"
     profile "org.grails.profiles:web-plugin"
