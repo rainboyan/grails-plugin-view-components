@@ -17,7 +17,6 @@ package org.rainboyan.plugins.components.taglib
 
 import groovy.transform.CompileStatic
 import org.apache.commons.beanutils.BeanUtils as CommonsBeanUtils
-import org.codehaus.groovy.runtime.DefaultGroovyMethods
 import org.springframework.beans.BeanUtils as SpringBeanUtils
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.context.ApplicationContext
@@ -28,7 +27,6 @@ import grails.core.GrailsApplication
 import grails.core.GrailsClass
 import grails.core.support.GrailsApplicationAware
 import grails.gsp.TagLib
-import grails.plugin.markup.view.MarkupViewTemplateEngine
 import grails.util.GrailsNameUtils
 import grails.views.Component
 
@@ -46,11 +44,9 @@ class ComponentTagLib implements ApplicationContextAware, GrailsApplicationAware
 
     static namespace = 'vc'
     static defaultEncodeAs = 'raw'
-    static final String COMPONENT_VIEW_DIR = '/components'
 
     GrailsApplication grailsApplication
     ApplicationContext applicationContext
-    MarkupViewTemplateEngine markupTemplateEngine
 
     private final Map<String, Class> components = new HashMap<>()
 
@@ -94,9 +90,7 @@ class ComponentTagLib implements ApplicationContextAware, GrailsApplicationAware
             }
         }
         if (componentObject && componentClass) {
-            Map<String, Object> binding = new HashMap<>()
-            binding.putAll(DefaultGroovyMethods.getProperties(componentObject))
-            componentObject.template.make(binding).writeTo(out)
+            out.write(componentObject.render().toString())
         }
         else {
             throwTagError("Component with name [\"$componentName\"] not found")

@@ -64,9 +64,13 @@ trait Component extends WebAttributes {
 
     @Generated
     Template getTemplate() {
-        String inlineTemplate = renderInline()
-        if (inlineTemplate) {
-            return getComponentTemplateEngine().createTemplate(inlineTemplate)
+        getTemplate(null)
+    }
+
+    @Generated
+    Template getTemplate(String templateText) {
+        if (templateText) {
+            return getComponentTemplateEngine().createTemplate(templateText)
         }
         String viewName = StringUtils.getSnakeCaseName(getClass())
         String templatePath = COMPONENT_VIEW_DIR + '/' + viewName
@@ -79,17 +83,22 @@ trait Component extends WebAttributes {
     }
 
     @Generated
-    String render() {
+    def render() {
+        render(null)
+    }
+
+    @Generated
+    String render(String templateText) {
         Map<String, Object> binding = new HashMap<>()
         binding.putAll(DefaultGroovyMethods.getProperties(this))
         FastStringWriter writer = new FastStringWriter()
-        getTemplate().make(binding).writeTo(writer)
+        getTemplate(templateText).make(binding).writeTo(writer)
         raw(writer.toString())
     }
 
     @Generated
-    String renderInline() {
-        null
+    String inline(String templateText) {
+        render(templateText)
     }
 
     @Generated
