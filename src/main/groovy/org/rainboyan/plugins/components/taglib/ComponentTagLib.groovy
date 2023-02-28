@@ -81,8 +81,11 @@ class ComponentTagLib implements ApplicationContextAware, GrailsApplicationAware
             componentName = component
             if (componentClass) {
                 componentObject = SpringBeanUtils.instantiateClass(componentClass, Component)
-                if (componentObject && attrs.model) {
-                    CommonsBeanUtils.copyProperties(componentObject, (Map) attrs.model)
+                if (componentObject) {
+                    def props = attrs.model ?: attrs
+                    if (props) {
+                        CommonsBeanUtils.copyProperties(componentObject, (Map) props)
+                    }
                 }
             }
             else {
