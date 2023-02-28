@@ -30,7 +30,7 @@ import org.rainboyan.plugins.components.component.DefaultGrailsComponentClass;
 public class ComponentArtefactHandler extends ArtefactHandlerAdapter {
 
     public static final String TYPE = "Component";
-    public static final String PLUGIN_NAME = "components";
+    public static final String PLUGIN_NAME = "viewComponents";
 
     public ComponentArtefactHandler() {
         super(TYPE, GrailsComponentClass.class, DefaultGrailsComponentClass.class,
